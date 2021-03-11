@@ -48,6 +48,8 @@ If the `rect` controls look as they do in the following screenshot, go ahead and
 
 Since Semblage is in alpha some features are missing, and on of those features is 2D visualization in the 3D view. This will make it so that nothing is rendered in the 3D view, although the 2D operation shows up in the _History_ list in the left pane. The 2D sketch is there, and will be used in future operations.
 
+### Step 3 - Extrude the Rectangle
+
 The next operation will be `extrude`. Right click on the 3D view again to bring the _Operations_ dialog back up. Click on the _3D_ button. In most cases this button will be selected by default once a workplane has been created.
 
 ![3D Group Selected](_static/Bearing_Block_Tutorial_Operations_Dialog_3D_Selected.png)
@@ -69,11 +71,51 @@ Once the extrude settings are as shown, click the _OK_ button. The result should
 
 ![Extruded Base Block](_static/Bearing_Block_Extruded_Base_Block.png)
 
+## Center Hole
+
 The center hole that the bearing presses into can now be added. To tell CadQuery which face to place the next feature on, we use selectors. Selectors are a flexible way to capture design intent. For instance, if we select the face in the maximum Z axis direction, the furthest face will always be selected, even if steps or other features are added to the component. It makes designs less brittle.
 
 The goal is to eventually have selectors largely determined by what the user selects prior to adding a new operation, but for now the selectors have to be added manually. To add the selector, bring up the Operations dialog (right click) and click the selector button (a dot with a circle around it).
 
-## Center Hole
+### Step 1 - Select a Face to Place Circle On
+
+The hole in the center of the block runs through the Z axis. We could choose either to start the hole from the minimum Z or maximum Z sides of the block, but starting from the maximum Z direction feels a little bit more like a drill operation, so we will do that.
+
+Bring up the _Operations_ dialog, and make sure that the _Selectors_ button is toggled.
+
+![Operations Dialog Selectors Toggled](_static/Bearing_Block_Operations_Dialog_Selectors_Toggled.png)
+
+_Face_, _Edge_ and _Vertex_ selectors are available, but to place the circle for the hole we will only use the _Face_ selector.
+
+1. Pull down the _Face Selector_ drop down that shows _None_ by default and set it to _Maximum_.
+2. A new drop down will appear to set the axis. Set this to _Z_. This, combined with the _Maximum_ setting above, will select the face that is furthest along the Z axis away from the origin.
+
+Your _Operations_ dialog should now look like this.
+
+![Face Selector Values Set](_static/Bearing_Block_Operations_Dialog_Selector_Values_Set.png)
+
+Hit _OK_ to add this selector to the main _History_ list. Again, since Semblage is in alpha there are visualizations missing, including selector visualizations. There will be nothing shown in the 3D view for edges and vertices at this time, and a thin slice representing a face selector will be shown. However, even if nothing shows in the 3D view, the face selector will show in the _History_ list.
+
+![Face Selector in History List](_static/Bearing_Block_Face_Selector_in_History.png)
+
+### Step 2 - Add the Hole Circle
+
+Now that the "top" face of the block has been selected, we can place a circle the size of the center hole on it and cut it through the block. We could also add a 3D hole operation, but the idea with this tutorial it to follow the workflow of `2D sketch -> 3D operation`. As you gain more experience with Semblage and CadQuery, you will start to use orders of operations that feel right for you in a given situation.
+
+Bring up the _Operations_ dialog, and follow these steps.
+
+1. Click the 2D sketch mode button
+2. The `circle` operation should be shown by default, but if it is not, click the operation drop down and select it
+3. Set the value of _Radius_ to _11_
+4. Leave _For Construction_ unchecked
+
+The _Operations_ dialog should now look like this.
+
+![Circle Values Set](_static/Bearing_Block_Operations_Dialog_Circle_Values_Set.png)
+
+Click the _OK_ button to add the circle to the _History_ list. Nothing will be displayed in the 3D view at this point since 2D visualization is not available yet.
+
+### Step 3 - Add the Cut Operations
 
 ## Counter-bore Mounting Holes
 
