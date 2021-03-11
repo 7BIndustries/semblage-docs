@@ -29,7 +29,6 @@ This documentation is organized into the following sections:
     * [Workflow](usage.md#workflow)
 * [Tutorials](tutorials/index.md)
     * [Pillow Block Bearing](pillow_block_bearing.md)
-        * Base Block
 * [Community](community.md)
     * [Communication Channels](community.md#communication-channels)
     * [Contributing]()
