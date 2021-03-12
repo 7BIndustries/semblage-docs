@@ -115,10 +115,124 @@ The _Operations_ dialog should now look like this.
 
 Click the _OK_ button to add the circle to the _History_ list. Nothing will be displayed in the 3D view at this point since 2D visualization is not available yet.
 
-### Step 3 - Add the Cut Operations
+### Step 3 - Add the Cut Operation
+
+With the circle placed, a cut operation can now be added. Open the Operations dialog with a right click again, and perform the following steps.
+
+1. Click the _3D_ button to select the group of 3D operations.
+2. Click the operation drop down and select `cutThruAll` from the list. We do a thru cut because if we created a blind cut with a distance, and then changed the thickness of the plate, the hole might not go all the way through the plate anymore. Using `cutThruAll` ensures that our design intent is preserved, even when the component changes.
+3. All of the default `cutThruAll` options are what we need for this. If you need a tapered hole, the _Taper_ option could be used. The _Invert_ setting will cause the hole to be cut in the opposite direction. Neither of those things are needed in this case.
+
+The _Operations_ dialog should now look like the following.
+
+![Cut Thru All Values Set](_static/Bearing_Block_Operations_Dialog_cutThruAll_Values_Set.png)
+
+Click the _OK_ button if/when all settings match the screenshot. This adds the `cutThruAll` operation to the main _History_ list and a representation of the component is shown in the 3D view.
+
+![Block With Center Hole](_static/Bearing_Block_Operations_Dialog_Block_With_Center_Hole.png)
 
 ## Counter-bore Mounting Holes
 
+We want to place counter-bore holes in each of the 4 corners of the block. The method shown here is a basic method that will be less than ideal until variables are added in Semblage. This method will not adjust the hole locations if the width and depth of the plate are changed. There is an alternative method given at the end of this tutorial, but it is more advanced and requires more steps.
+
+We are going to place another rectangle on the maximum Z surface ("top" surface) of the block, but this time we are going to make it construction geometry. This type of geometry is only used for placing other geometry and features, not for being converted into a solid by a 3D operation.
+
+### Step 1 - Set Location of Construction Geometry
+
+We need to select the face that the construction geometry will be placed on. As with the center hole, mimicking a machining operation and starting from the maximum "top" Z surface can be a good default. Right click to bring up the `Operations` dialog, then follow these steps.
+
+1. Click the _Selectors_ mode button.
+2. Click on the _Face Selector_ drop down and select _Maximum_. This will select the face furthest away from the origin in the axis we select next.
+3. A new drop down will appear for setting the axis. Set this to _Z_.
+
+The _Operations dialog settings should now look like the following.
+
+![Counter Bore Face Selector](_static/Bearing_Block_CBore_Face_Selector.png)
+
+Click the _OK_ button to add the selector to the main _History_ list.
+
+### Step 2 - Add Construction Rectangle
+
+Right click to bring the `Operations` dialog back up, then follow these steps.
+
+1. Click the _Sketch_ mode button to select the group of 2D operation controls.
+2. Click the operation drop down and select `rect`.
+3. Set the _Width_ value to _68.0_, which is an inset of _12.0_ from the side of the block.
+4. Set the _Height_ value to _48.0_, which is an inset of _12.0_ from the side of the block.
+5. Leave _Centered_ checked. We centered the rectangle that was used to build the base block, and so we want to center this one as well.
+6. Check the box next to _For Construction_. This is what determines that the rectangle will only be used to place other geometry and locate other options.
+
+The _Operations_ dialog should now look like the following screenshot.
+
+![Construction rect Values Set](_static/Bearing_Block_Contruction_rect_Values_Set.png)
+
+Click the _OK_ button to add the construction rectangle to the main _History_ list.
+
+### Step 4 - Select Rectangle Vertices to Place Holes
+
+With the construction rectangle now available, we can select the vertices in each of the 4 corners and use those to place the counter-bore holes. Bring up the _Operations_ dialog again and follow these steps.
+
+1. Click the _Selectors_ mode button.
+2. Click on the _Vertex Selector_ drop down and select _All_. This will select all the vertices of the construction rectangle, which effectively selects all the corners.
+
+The _Operations_ dialog should now look like this.
+
+![Select All Rect Vertices](_static/Bearing_Block_Select_All_Rect_Vertices.png)
+
+Click _OK_ to add the selector to the main _History_ list.
+
+### Step 3 - Add Counter-Bore Holes
+
+With the construction rectangle vertices now selected, we can use those to place the counter-bore holes. Bring up the _Operations_ dialog again and follow these steps.
+
+1. Make sure that 3D mode is selected.
+2. Click the operation drop down and select `cboreHole`.
+3. Set _Hole Diameter_ to _2.4_.
+4. Leave _Hole Depth_ at _0_ for thru.
+5. Set _Counter-Bore Diameter_ to _4.4_.
+6. Set _Counter-Bore Depth_ to _2.1_.
+7. Leave _Clean_ checked.
+
+The _Operations_ dialog should now look like this.
+
+![Counter-bore Values Set](_static/Bearing_Block_CBore_Values_Set.png)
+
+Click the _OK_ button to add the counter-bore holes to the block. The bearing block should now look like the following.
+
+![Block With Counterbore Holes](_static/Bearing_Block_With_CBore_Holes.png)
+
 ## Fillet Edges
 
-## (Optional) Alternative Method For Placing Holes
+The last thing to do is to break the edges on the block with fillets. We only want to fillet the edges that are parallel to the Z axis, so will use a new selector for those.
+
+### Step 1 - Select the Edges
+
+Open the _Operations_ dialog and follow these steps.
+
+1. Click the _Selectors_ mode button.
+2. Click the _Edge Selector_ drop down that shows _None_, and select _Parallel_. The parallel selector selects any edges that are parallel to a given axis.
+3. Once the _Parallel_ selector has been clicked, a new drop down will become visible. We want to select the edges parallel to the Z axis, so select _Z_ in this new drop down.
+
+The _Operations_ dialog should now look like this.
+
+![Fillet Edge Selectors](_static/Bearing_Block_Fillet_Edge_Selectors.png)
+
+Click the _OK_ button to add the edge selector to the main _History_ list.
+
+### Step 2 - Apply the Fillets
+
+The last thing to do is to fillet the edges that have been selected. Open the _Operations_ dialog and follow these steps.
+
+1. Click the _3D_ mode button.
+2. Click the operation drop down and select _fillet_.
+3. There is only one setting for the fillet command, and that is _Radius_. Set that to _2.0_.
+
+The dialog should look like this now.
+
+![Fillet Radius Set](_static/Bearing_Block_Fillet_Radius_Set.png)
+
+Click the _OK_ button to add the fillet to the main _History_ list. The final bearing block should render and look like this.
+
+![Bearing Block Final Result](_static/Bearing_Block_Final_Result.png)
+
+## (Extra Credit) Alternative Method For Placing Holes
