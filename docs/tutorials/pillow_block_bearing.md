@@ -234,5 +234,3 @@ The dialog should look like this now.
 Click the _OK_ button to add the fillet to the main _History_ list. The final bearing block should render and look like this.
 
 ![Bearing Block Final Result](_static/Bearing_Block_Final_Result.png)
-
-## (Extra Credit) Alternative Method For Placing Holes
