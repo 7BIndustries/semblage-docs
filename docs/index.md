@@ -31,8 +31,9 @@ This documentation is organized into the following sections:
     * [Bearing Block](tutorials/bearing_block.md)
 * [Community](community.md)
     * [Communication Channels](community.md#communication-channels)
-    * [Contributing]()
+    * [Contributing](community.md#contributing)
     * [Translating](community.md#translating)
+    * [Accessibility](community.md#accessibility)
     * [Sponsoring](community.md#sponsoring)
-    * Code of Conduct
+    * [Code of Conduct](community.md#code-of-conduct)
 * [Roadmap](roadmap.md)
