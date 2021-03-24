@@ -32,6 +32,7 @@ This documentation is organized into the following sections:
 * [Community](community.md)
     * [Communication Channels](community.md#communication-channels)
     * [Contributing](community.md#contributing)
+    * [Coding](community.md#coding)
     * [Translating](community.md#translating)
     * [Accessibility](community.md#accessibility)
     * [Sponsoring](community.md#sponsoring)
