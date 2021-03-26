@@ -1,9 +1,14 @@
 # Installation
 
-At the time of this writing there is no release, so there are no release packages to download. The only way of running Semblage at this time is to run a development setup. A release will be made soon though.
+***NOTE*** Only 64-bit AMD and Intel systems are supported at this time. ARM, as well as AMD and Intel 32-bit support, is not available.
 
-***NOTE*** Only 64-bit AMD and Intel systems are supported at this time. ARM, as well as AMD and Intel 32-bit support is not available.
+There is no installer for Semblage, it is distributed as a zip file that can be extracted and used as-is. The following steps should be followed to get to a point where Semblage can be launched.
 
-There is no installer file for Semblage, it is distributed as a zip file that can be extracted and used as-is. Go to the [releases page](https://github.com/7BIndustries/Semblage/releases), click on the latest release, and download the zip file for your operating system. Once the download is complete, extract the archive and run the `Semblage` binary in the root directory. Semblage should launch, but the MacOS binary may need to be launched from the command line. If there are problems, please file an [issue](https://github.com/7BIndustries/Semblage/issues) or post a message on the [community channels](community.md#communication-channels).
+1. Go to the [releases page](https://github.com/7BIndustries/Semblage/releases).
+2. Click on the latest release, and download the zip file for your operating system.
+3. Once the download is complete, extract the archive to an easy-to-access location.
+4. Run the `Semblage` binary in the root directory.
+
+Semblage should launch, but the MacOS binary may need to be launched from the command line. If there are problems, please file an [issue](https://github.com/7BIndustries/Semblage/issues) or post a message on the [community channels](community.md#communication-channels). Launching Semblage from the command line on your platform is a good way to collect debugging information when asking for help.
 
 Once Semblage is up an running, you can proceed to the [Usage](usage.md) documentation.

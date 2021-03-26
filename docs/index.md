@@ -1,10 +1,10 @@
 # Semblage Documentation
 
-Welcome to the documentation for Semblage, a community-based, open source 2D/3D CAD application that seeks to blend the mouse-driven and programmatic CAD worlds. If you are brand new to Semblage, it is recommended that you read the [introduction page](introduction.md) to get an overview of what Semblage is before moving on to the [Getting Started page](getting_started.md).
+Welcome to the documentation for Semblage, a community-based, open source 2D/3D CAD application that seeks to blend the mouse-driven and programmatic CAD worlds. If you are brand new to Semblage, it is recommended that you read the [introduction page](introduction.md) to get an overview of what Semblage is before moving on to the [Installation]intallation.md) and [Usage](usage.md) documentation.
 
 If you get stuck at any point while going through this documentation, you can ask questions on any of the [communication channels](community.md#communication-channels).
 
-***PLEASE NOTE*** Semblage is in pre-alpha, and is not overly useable or stable yet. There will be a release once it has reached alpha quality with the minimum-viable feature set. This documentation is only partly complete, and will change significantly before the first release.
+***PLEASE NOTE:*** Semblage is in alpha, and so significant bugs may be present. Please open a [GitHub issue](https://github.com/7BIndustries/Semblage/issues) or post a message on the [community channels](community.md#communication-channels) if you encounter a bug.
 
 ## Supporting
 

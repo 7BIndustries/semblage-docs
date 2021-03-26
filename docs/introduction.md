@@ -29,7 +29,7 @@ The high-level goals of Semblage are as follows.
 
 Semblage is in alpha at this time, so core features may be missing or broken. Use at your own risk.
 
-The operations available in Semblage have not been annotated with documentation yet, but have been derived directly from their CadQuery counterparts. The [CadQuery documentation](https://cadquery.readthedocs.io/en/latest/) can be a stand-in until annotations are available, and will be useful for advanced Semblage usage even after annotations are avaialble.
+The operations available in Semblage have not been annotated with documentation yet, but have been derived directly from their CadQuery counterparts. The [CadQuery documentation](https://cadquery.readthedocs.io/en/latest/) can be a stand-in until annotations are available, and will be useful for advanced Semblage usage even after annotations are available.
 
 Here is a list of currently missing features that users may find limiting. Each item in this list can be read as a "not yet" item. The goal is to implement all of the missing features below over time.
 
