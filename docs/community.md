@@ -19,7 +19,11 @@ There is a [separate guide](developer_setup.md) on setting up a development envi
 
 ## Translating
 
-The Godot game engine supports translations, as does mkdocs, which is used to build the documentation. Translations are welcome and desired, but more work needs to be done to add the infrastructure to support them. If you are interested in doing translations, please open a GitHub issue or start a conversation on the community channels.
+The Godot game engine supports translations, as does mkdocs, which is used to build this documentation. Translations are welcome and desired, and information about adding translations for additional languages to Semblage is covered in the link below. More work needs to be done to add the mkdocs mechanism to support translations, and a link for that process will be added in the future.
+
+If you are interested in doing translations, please open a GitHub issue or start a conversation on the community channels.
+
+* [Translating The Semblage User Interface](ui_translation.md)
 
 ## Accessibility
 

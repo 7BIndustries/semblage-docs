@@ -1313,13 +1313,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="14.90755"
+       x="11.462649"
        y="161.99699"
        id="text1041"><tspan
-         x="14.90755"
+         x="11.462649"
          y="161.99699"
          style="font-size:4.23333px;stroke-width:0.264583"
          sodipodi:role="line"
-         id="tspan1039">Add support for variables.</tspan></text>
+         id="tspan1039">Add support for parameters.</tspan></text>
   </g>
 </svg>
