@@ -12,11 +12,11 @@
    viewBox="0 0 297 210"
    version="1.1"
    id="svg8"
-   inkscape:version="1.0.1 (0767f8302a, 2020-10-17)"
+   inkscape:version="1.0.2 (394de47547, 2021-03-26)"
    sodipodi:docname="roadmap.svg"
-   inkscape:export-filename="/home/jwright/Downloads/repos/Semblage/docs/Semblage/about/_static/roadmap-full.png"
-   inkscape:export-xdpi="96.040001"
-   inkscape:export-ydpi="96.040001">
+   inkscape:export-filename="/home/jwright/Downloads/repos/semblage-docs/docs/_static/roadmap-med.png"
+   inkscape:export-xdpi="54.73"
+   inkscape:export-ydpi="54.73">
   <defs
      id="defs2">
     <inkscape:path-effect
@@ -751,7 +751,7 @@
          y="124.98914"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583">PERFORMANCE P2</tspan></text>
     <path
-       style="fill:#e4ea80;fill-opacity:1;stroke:#000000;stroke-width:0.191258px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#f27380;fill-opacity:1;stroke:#000000;stroke-width:0.191258px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 152.80005,120.54383 c 0,0 72.92235,0 72.92235,0 0,0 6.25245,2.90437 6.25245,2.90437 0,0 -6.25245,2.90437 -6.25245,2.90437 0,0 -72.96773,0 -72.96773,0 0,0 5.9678,-2.90437 5.9678,-2.90437 0,0 -5.92242,-2.90437 -5.92242,-2.90437 z"
        id="path1130"
        inkscape:path-effect="#path-effect1132"
@@ -1112,45 +1112,24 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="169.01741"
+       x="93.397354"
        y="131.8349"
        id="text1823"><tspan
          sodipodi:role="line"
-         x="169.01741"
+         x="93.397354"
          y="131.8349"
          style="font-size:4.23333px;stroke-width:0.264583"
          id="tspan1873">Rework Semblage</tspan><tspan
          sodipodi:role="line"
-         x="169.01741"
+         x="93.397354"
          y="137.12656"
          style="font-size:4.23333px;stroke-width:0.264583"
          id="tspan1877">tessellation to address</tspan><tspan
          sodipodi:role="line"
-         x="169.01741"
+         x="93.397354"
          y="142.41823"
          style="font-size:4.23333px;stroke-width:0.264583"
          id="tspan1879">bottlenecks.</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="100.64365"
-       y="131.8349"
-       id="text1827"><tspan
-         sodipodi:role="line"
-         x="100.64365"
-         y="131.8349"
-         style="font-size:4.23333px;stroke-width:0.264583"
-         id="tspan1865">Rework cq-cli to</tspan><tspan
-         sodipodi:role="line"
-         x="100.64365"
-         y="137.12656"
-         style="font-size:4.23333px;stroke-width:0.264583"
-         id="tspan1869">address Python</tspan><tspan
-         sodipodi:role="line"
-         x="100.64365"
-         y="142.41823"
-         style="font-size:4.23333px;stroke-width:0.264583"
-         id="tspan1871">bottlenecks.</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1321,5 +1300,16 @@
          style="font-size:4.23333px;stroke-width:0.264583"
          sodipodi:role="line"
          id="tspan1039">Add support for parameters.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="191.32976"
+       y="139.30942"
+       id="text1029"><tspan
+         sodipodi:role="line"
+         id="tspan1027"
+         x="191.32976"
+         y="139.30942"
+         style="font-size:4.23333px;stroke-width:0.264583">?</tspan></text>
   </g>
 </svg>

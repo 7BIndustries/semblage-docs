@@ -6,7 +6,7 @@ There is no installer for Semblage, it is distributed as a zip file that can be 
 
 1. Go to the [releases page](https://github.com/7BIndustries/Semblage/releases).
 2. Click on the latest release, and download the zip file for your operating system.
-3. Once the download is complete, extract the archive to an easy-to-access location.
+3. Once the download is complete, extract the archive into an easy-to-access location.
 4. Run the `Semblage` binary in the root directory.
 
 Semblage should launch, but the MacOS binary may need to be launched from the command line. If there are problems, please file an [issue](https://github.com/7BIndustries/Semblage/issues) or post a message on the [community channels](community.md#communication-channels). Launching Semblage from the command line on your platform is a good way to collect debugging information when asking for help.
