@@ -5,7 +5,6 @@ This page is dedicated to resources for the community that will hopefully form a
 ## Communication Channels
 
 * [Groups.io](https://groups.io/g/semblage) - Traditional mailing list. Messages from new users must be approved twice before your messages will come through automatically.
-* [Discord](https://discord.gg/hQG9fQwfKm) - Discord server. There are chat, voice and video channels.
 
 ## Contributing
 
