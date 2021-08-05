@@ -30,17 +30,17 @@ Click the OK button and the parameter will be added to the _Parameters_ list in 
 
 ### Step 2 - Add the Bearing Thickness Parameter
 
-The process from step 1 of adding a parameter should be repeated for the bearing thickness, using `bearing_thickness` as the _Name_, and `7.0` as the _Value_. After clicking the _OK_ button, the Parameters list should look like this.
+Repeat the process from step 1 by adding a parameter for the bearing thickness, using `bearing_thickness` as the _Name_, and `7.0` as the _Value_. After clicking the _OK_ button, the Parameters list should look like this.
 
 ![bearing_thickness Parameter in Parameters List](_static/Bearing_Block_Parameters_List_bearing_thickness_Added.png)
 
 ### Step 3 - Add Derived Parameters
 
-Parameter values support formulas, so it is possible to base one parameter on the value of another. This makes it possible to define relationships between different aspects of a design so that the entire design (or at least most of it) updates properly when a change is made. Determining the right parameters and creating good relationships between them for an optimal design can be hard, and takes practice and experimentation.
+Formulas are allowed as parameter values, so it is possible to base one parameter on the value of another. This makes it possible to define relationships between different aspects of a design so that the entire design (or at least most of it) updates properly when a change is made. Determining the right parameters and creating good relationships between them for an optimal design can be hard, and takes practice and experimentation.
 
-It is possible to over-do parameterization of your models, and so care should be taken to ensure that all parameters that are created add value to the end design. In this case, we are going to add parameters to determine the dimensions of the bearing block, and the inset of the mounting hole pattern. A few more parameters could be added, but in an effort to keep this tutorial simpler are omitted.
+It is possible to over-do parameterization of your models, and so care should be taken to ensure that all parameters that are created add value to the end design. In this case, we are going to add parameters to determine the dimensions of the bearing block and the inset of the mounting hole pattern. A few more parameters could be added, but in an effort to keep this tutorial simpler they are omitted.
 
-The width and height of the bearing block will be determined by the bearing size, and how much material there should be around the bearing to support the press fit properly. We will make our bearing block square, and the bearing will be flush with the top and bottom of the plate when pushed in. To achieve this, the following parameters can be added.
+The width and height of the bearing block will be determined by the bearing size, and how much material there should be around the bearing to support a press fit properly. We will make our bearing block square, and the bearing will be flush with the top and bottom of the plate when pushed in. To achieve this, the following parameters can be added.
 
 | Name            | Value               | Notes                                           |
 | :-------------- | :------------------ | :---------------------------------------------- |
@@ -57,26 +57,30 @@ Once finished, the _Parameters_ list should look like this.
 
 With the parameters set, we can now create a simple block for the main body of the bearing block.
 
-### Step 1 - Creating the Workplane
+### Step 1 - Creating the Component
 
 Right click on the 3D view to bring up the Operations dialog.
 
 ![Bearing Block Tutorial Operations Dialog](_static/Bearing_Block_Tutorial_Operations_Dialog.png)
 
-1. Make sure that the first drop down shows `Workplane`, which should be the default. Every component design starts with a base Workplane that everything else is built on.
-2. The _Name_ field shows "Change". This should be set to a meaningful and concise name for the component, such as `Bearing Block`.
-3. The _Orientation_ drop down sets the axes that define the workplane. For instance, _XY_ makes the workplane a plane aligned with both the X and Y axes. `XY` is a safe choice for many desktop manufacturing uses because the bed of a 3D printer or CNC router is typically defined as the X and Y axes, and the print head is the Z or "up" axis. We will build the bearing plate "up" the Z axis, much like a 3D printer would print it.
+1. Make sure that the first drop down shows `New Component`, which should be the default. Every component design starts with a component which has a base workplane that everything else is built on.
+2. The _Name_ field shows `change_me`. This should be set to a meaningful and concise name for the component, such as `bearing_block`. Note that component names need to follow the same naming conventions as parameters so that they can be used as CadQuery variable names.
+3. The _Orientation_ drop down sets the axes that define the component's base workplane. For instance, _XY_ sets the workplane to be aligned with both the X and Y axes. `XY` is a safe choice for many desktop manufacturing uses because the bed of a 3D printer or CNC router is typically defined as the X and Y axes, and the print head is the Z or "up" axis. We will build the bearing plate "up" the Z axis, much like a 3D printer would print it.
 4. _Center Option_ - This option can get a little complicated, but for now the default of `CenterOfBoundBox` will work fine. This defines the center of the workplane as being the geometric center of the component. The other center options have nuances that we won't cover here.
 5. _Invert_ - This defines whether the normal, or "up", direction from the workplane is in a positive or negative direction. The default is unchecked, which works well for our purposes and means that the normal will be in the positive direction.
 6. _Advanced_ - This button shows another set of controls that allow a user to define a workplane in whatever location and orientation they choose. For our purposes, this is not needed.
 
-Once the settings are correct, click the OK button. At this point you should have a semi-transparent representation of the workplane that was just created. If you rotate the view, you will see that there is a plane representing the workplane, and a spike which represents the normal of the workplane. The normal can become important in certain operations like when doing a cut or creating a hole.
+With the _Name_ field set to `bearing_block` and the other controls left at their defaults, click the OK button. At this point you should have a semi-transparent representation of the workplane that was just created. If you rotate the view, you will see that there is a plane representing the workplane, and a spike which represents the normal of the workplane. The normal can become important in certain operations like when doing a cut or creating a hole.
 
 ![Workplane Visualization](_static/Bearing_Block_Tutorial_Workplane_Visualization.png)
 
+You will also notice that a `bearing_block` entry has been added to the _Components_ list of the main user interface.
+
+![bearing_block Component Added](_static/Bearing_Block_Component_Added_To_List.png)
+
 ### Step 2 - Creating a 2D Sketch on the Workplane
 
-Now that there is a workplane to place geometry on, it's time to create the 2D sketch that will become the base block. Right click to bring up the _Operations_ dialog again, and click the _2D_ button at the top (pencil icon) to select the sketch tool.
+Now that there is a workplane to place geometry on, it is time to create the 2D sketch that will become the base block. Right click to bring up the _Operations_ dialog again, and click the _2D_ button at the top (pencil icon) to select the sketch tool.
 
 ![Default Sketch Dialog](_static/Bearing_Block_Tutorial_Default_Sketch_Dialog.png)
 
@@ -95,7 +99,7 @@ If the `rect` controls look as they do in the following screenshot, go ahead and
 
 ![rect Controls Set](_static/Bearing_Block_Tutorial_rect_Controls_Set.png)
 
-At this point a 2D representation of the rectangle should be visible in the 3D view, and the rect operation will show up in the _History_ list in the left pane. The 2D rectangle sketch will be used in the next operation. Since this is the first time accessing the Python subsystem to execute the script for your component, there may be a slight delay before the component is rendered.
+At this point a 2D representation of the rectangle should be visible in the 3D view, and the `rect` operation will show up in the _History_ list in the left pane. The 2D rectangle sketch will be used in the next operation. Since this is the first time accessing the Python subsystem to execute the script for your component, there may be a slight delay before the component is rendered.
 
 ### Step 3 - Extrude the Rectangle
 
@@ -111,7 +115,7 @@ Below is an explanation to each of the `extrude` settings.
 
 1. _Distance_ - The distance that the extrude operation will move through. This will determine the depth dimension of the resulting solid.
 2. _Combine_ - Determines whether or not this resulting solid should be combined with other existing solids within this component.
-3. _Clean_ - When set, will ask the CAD kernel to clean the resulting solid(s). By default this is checked, and can be unchecked if an extrude results in an invalid solid due to a kernel issue.
+3. _Clean_ - When set, will ask the CAD kernel to clean the resulting solid(s). By default this is checked, and can be unchecked if an extrude results in an invalid solid due to a CAD kernel issue.
 4. _Both_ - Will cause the extrude operation to move through the specified distance in both the positive and negative normal directions at the same time.
 5. _Taper_ - Causes the extruded area to increase or decrease as the extrude moves over the distance. A positive taper will cause the area  to decrease and a negative taper will cause the area to increase. Keep in mind that using a taper can make it harder to determine the area of the face at the end of the extrusion.
 6. _Invert_ - Checking this will cause the extrusion to move in the opposite direction from the workplane normal.
@@ -124,7 +128,7 @@ Once the extrude settings are as shown, click the _OK_ button. The result should
 
 The center hole that the bearing presses into can now be added. To tell Semblage (and by extension CadQuery) which face to place the next feature on, we use selectors. Selectors are a flexible way to capture design intent. For instance, if we select the face in the maximum Z axis direction, the furthest face will always be selected, even if steps or other features are added to the component. Selectors help make designs less brittle.
 
-The goal is to eventually have selectors largely determined by what the user selects prior to specifying a new selector operation, but for now the selectors have to be added manually.
+The goal is to eventually have selectors be largely determined by what the user selects prior to starting a new selector operation, but for now the selectors have to be added manually.
 
 ### Step 1 - Select a Face to Place Circle On
 
@@ -138,13 +142,15 @@ _Face_, _Edge_ and _Vertex_ selectors are available, but to place the circle for
 
 1. Pull down the _Face Selector_ drop down that shows _None_ by default and set it to `Maximum`.
 2. A new drop down will appear to set the axis. Set this to `Z`. This, combined with the _Maximum_ setting above, will select the face that is furthest along the Z axis away from the origin.
-3. Click the _Create Workplane_ toggle to set it to _ON_. This will display extra options for adding a workplane to the selected face so that the circle can be added to that.
+3. The selector index allows the selection to be changed to the selections before or after the primary selection. This is useful for selecting things like a step 2 faces below the face that you are selecting. This can be left at 0 for our uses, which ignores the index.
+4. Click the _Create Workplane_ toggle to set it to _ON_. This will display extra options for adding a workplane to the selected face so that the circle can be added to that.
+5. All other controls can be left at their default.
 
 Your _Operations_ dialog should now look like this.
 
 ![Face Selector Values Set](_static/Bearing_Block_Operations_Dialog_Selector_Values_Set.png)
 
-Hit _OK_ to add this selector to the main _History_ list. Again, since Semblage is in alpha there are visualizations missing, including selector and face workplane visualizations. There will be nothing shown in the 3D view for edges and vertices at this time, but a thin slice representing the selected face selector may be shown. However, even if nothing shows in the 3D view, the face selector will still show up in the _History_ list.
+Click _OK_ to add this selector to the main _History_ list. Again, since Semblage is in alpha there are visualizations missing, including selector and face workplane visualizations. There will be nothing shown in the 3D view for edges and vertices at this time, but a thin slice representing the selected face selector may be shown. However, even if nothing shows in the 3D view, the face selector will still show up in the _History_ list.
 
 ![Face Selector in History List](_static/Bearing_Block_Face_Selector_in_History.png)
 
@@ -154,7 +160,7 @@ Now that the "top" face of the block has been selected, we can place a circle th
 
 Bring up the _Operations_ dialog (right click), and follow these steps.
 
-1. Click the 2D sketch mode button
+1. Click the _2D_ sketch mode button
 2. The `circle` operation should be shown by default, but if it is not, click the operation drop down and select it
 3. Set the value of _Radius_ to `bearing_od`, which is the parameter we set before.
 4. Leave _For Construction_ unchecked
@@ -163,7 +169,7 @@ The `circle` controls in the dialog should now look like this (the parameter nam
 
 ![Circle Values Set](_static/Bearing_Block_Operations_Dialog_Circle_Values_Set.png)
 
-Note that in most cases a press-fit tolerance would be added to the hole to make sure the bearing fit correctly. To keep things a little simpler, we have omitted that here.
+Note that in most cases a press-fit tolerance would be added to the hole to make sure the bearing fits correctly. To keep things a little simpler, we have omitted that here.
 
 Click the _OK_ button to add the circle to the _History_ list. The circle will be displayed in the 3D view at this point, but the original box will not be. Displaying additions in the context of the operations that have been performed before will be a future visualization update.
 
@@ -185,7 +191,7 @@ Click the _OK_ button if/when all settings match the screenshot. This adds the `
 
 ## Counter-bore Mounting Holes
 
-We now want to place counter-bore holes in each of the 4 corners of the block. We are going to place another rectangle on the maximum Z ("top") surface of the block, but this time we are going to make it construction geometry. This type of geometry is only used for placing other geometry and features, not for being converted into a solid by a 3D operation.
+We now want to place counter-bore holes in each of the 4 corners of the block. We are going to place another rectangle on the maximum Z ("top") surface of the block, but this time we are going to make it construction geometry. This type of geometry is used only for placing other geometry and features, not for being converted into a solid by a 3D operation.
 
 ### Step 1 - Set Location of Construction Geometry
 
@@ -194,9 +200,10 @@ We need to select the face that the construction geometry will be placed on. As 
 1. Click the _Selectors_ mode button.
 2. Click on the _Face Selector_ drop down and select `Maximum`. This will select the face furthest away from the origin in the axis we select next.
 3. A new drop down will appear for setting the axis. Set this to `Z`.
-4. Click the Create Workplane toggle to set it to ON. This will display extra options for adding a workplane to the selected face so that the circle can be added to that.
+4. Leave the index at 0 to ignore it.
+5. Click the Create Workplane toggle to set it to ON. This will display extra options for adding a workplane to the selected face so that the circle can be added to that.
 
-The _Operations dialog settings should now look like the following.
+The _Operations_ dialog settings should now look like the following.
 
 ![Counter Bore Face Selector](_static/Bearing_Block_Operations_Dialog_Selector_Values_Set.png)
 
@@ -211,13 +218,13 @@ Next we will add the rectangle that will be used to place the holes. Right click
 3. Set the _Width_ value to `block_width - hole_inset`, which insets the rectangle from the edge of the block along the width dimension.
 4. Set the _Height_ value to `block_height - hole_inset`, which insets the rectangle from the edge of the block along the height dimension.
 5. Leave _Centered_ checked. We centered the rectangle that was used to build the base block, and so we want to center this one as well.
-6. Check the box next to _For Construction_. This is what determines that the rectangle will only be used to place other geometry and locate other options.
+6. Check the box next to _For Construction_. This is what determines that the rectangle will only be used to place other geometry.
 
 The `rect` controls should now look like the following screenshot.
 
-![Construction rect Values Set](_static/Bearing_Block_Contruction_rect_Values_Set.png)
+![Construction rect Values Set](_static/Bearing_Block_Tutorial_rect_Controls_Set_For_Construction.png)
 
-Click the _OK_ button to add the construction rectangle to the main _History_ list.
+Click the _OK_ button to add the construction rectangle to the main _History_ list. The rectangle will be shown, but the block will not be.
 
 ### Step 4 - Select Rectangle Vertices to Place Holes
 
@@ -231,7 +238,7 @@ The _Operations_ dialog should now look like this.
 
 ![Select All Rect Vertices](_static/Bearing_Block_Select_All_Rect_Vertices.png)
 
-Click _OK_ to add the selector to the main _History_ list. Nothing will be displayed at this time since selector visualizations have not been implemented.
+Click _OK_ to add the selector to the main _History_ list. Nothing will be displayed at this time since selector visualizations have not been implemented. However, a `.vertices()` entry will be seen in the _History_ list.
 
 ### Step 3 - Add Counter-Bore Holes
 
@@ -282,6 +289,7 @@ Open the _Operations_ dialog and follow these steps.
 1. Click the _Selectors_ mode button.
 2. Click the _Edge Selector_ drop down that shows `None`, and select `Parallel`. The parallel selector selects any edges that are parallel to a given axis.
 3. Once the _Parallel_ selector has been clicked, a new drop down will become visible. We want to select the edges parallel to the Z axis, so select `Z` in this new drop down.
+4. Leave the _Create Workplane_ toggle set to `OFF`.
 
 The _Operations_ dialog should now look like this.
 

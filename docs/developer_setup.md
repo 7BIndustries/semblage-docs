@@ -6,7 +6,7 @@ Semblage is built using the [Godot game engine](https://godotengine.org/) (using
 
 ## Godot Installation
 
-Godot is a single file distributable, which can be downloaded [here](https://godotengine.org/download). The version that is currently used for Semblage is 3.2.x. Download the package for your operating system, and extract it. There should be a binary within the archive. Put this in a location where it is easy to run during the development process.
+Godot is a single file distributable, which can be downloaded [here](https://godotengine.org/download). The version that is currently used for Semblage is 3.3.x. Download the package for your operating system, and extract it. There should be a binary within the archive. Put this in a location where it is easy to run during the development process.
 
 ## godot-python Installation
 
