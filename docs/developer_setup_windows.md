@@ -62,7 +62,7 @@ Due to the nature of how the Python plugin works on Windows, a copy of the Sembl
 
 ## Testing an Exported Package
 
-To test an exported package, double click Semblage.exe. The Semblage GUI should launch. Next, right click and add a _New Component_. All of the default settings are fine. Then right click again and add a box (under the 3D group). The default settings for this are fine too. If the box is rendered your release is valid, and can be packaged.
+To test an exported package, double click Semblage.exe. The Semblage GUI should launch. Next, right click in the Semblage 3D view and add a _New Component_. All of the default settings are fine. Then right click again and add a box (under the 3D group). The default settings for this are fine too. If the box is rendered your release is valid, and can be packaged.
 
 ## Creating the Release Archive
 

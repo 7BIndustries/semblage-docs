@@ -55,7 +55,7 @@ Once the export has completed, two files within the export directory must be set
 
 ## Testing an Exported Package
 
-To test an exported package, double click `Semblage` in the export directory. The Semblage GUI should launch. In some Linux desktop environments you must configure the file manager to run text files that have been set as executable. Next, right click and add a _New Component_. All of the default settings are fine. Then right click again and add a box (under the 3D group). The default settings for this are fine too. If the box is rendered your release is valid, and can be packaged.
+To test an exported package, double click `Semblage` in the export directory. The Semblage GUI should launch. In some Linux desktop environments you must configure the file manager to run text files that have been set as executable. Next, right click in the Semblage 3D view and add a _New Component_. All of the default settings are fine. Then right click again and add a box (under the 3D group). The default settings for this are fine too. If the box is rendered your release is valid, and can be packaged.
 
 ## Creating the Release Archive
 

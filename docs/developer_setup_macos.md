@@ -2,6 +2,8 @@
 
 ## Introduction
 
+***PLEASE NOTE:*** MacOS support has been dropped due to signing requirements which require a paid Apple developer account. It is still possible to set Semblage up as a developer, and the instructions also still exist to export a release of Semblage. However, the signing issue needs to be straightened out before the app will run. If you are a MacOS developer with a paid developer account who is willing to help out with this, please let us know in the communication channels.
+
 Below are the steps that should produce a working Semblage environment from scratch. This guide will walk developers through that process, and will also explain the export process to get a Semblage package ready for distribution. These steps should be similar (but not exactly the same) on Windows, Mac OS and Linux. Please contribute to this guide if you develop primarily on MacOS and have suggestions on how to make this guide better.
 
 ## Prerequisites

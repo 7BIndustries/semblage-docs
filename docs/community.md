@@ -8,7 +8,7 @@ This page is dedicated to resources for the community that will form around Semb
 
 ## Contributing
 
-There is a [contribution guide](https://github.com/7BIndustries/Semblage/blob/master/CONTRIBUTING.md) in the Semblage GitHub repository. There is also a [separate developer setup guide](developer_setup.md) on setting up a development environment for Semblage. There is also a [codebase tour](codebase_tour.md) to help new developers get their bearings. If you are interested in contributing code, please introduce yourself on the issue tracker or in one of the communication channels. Semblage has essentially two layers, the Godot layer and the Python layer. Depending on where your expertise and interest lies, here are two resources to get started learning how each layer works.
+There is a [contribution guide](https://github.com/7BIndustries/Semblage/blob/master/CONTRIBUTING.md) in the Semblage GitHub repository. There is also a [separate developer setup guide](developer_setup.md) on setting up a development environment for Semblage. The [codebase tour](codebase_tour.md) can help new developers get their bearings. If you are interested in contributing code, please introduce yourself on the issue tracker or in one of the communication channels. Semblage has essentially two layers, the Godot layer and the Python layer. Depending on where your expertise and interest lies, here are two resources to get started learning how each layer works.
 
 * [Godot Game Engine Documentation](https://docs.godotengine.org/en/stable/)
 * [Godot Python Plugin](https://github.com/touilleMan/godot-python)
