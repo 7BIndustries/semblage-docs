@@ -31,10 +31,10 @@ The layout of the _Add/Edit Parameter_ dialog is shown below.
 ![Add and Edit Parameter Dialog](_static/add_edit_parameter_dialog_overview.png)
 
 1. _Name_ - Name of the parameter. It must not be the same as an existing parameter, cannot start with a number, and can contain only numbers, letters, and the underscore character. These rules exist so that the parameter name can be used as a variable name in the CadQuery script.
-2. _String_ - Select this to specify that the parameter is to be a string (text) parameter.
-3. _Number_ - Select this to specify that the parameter is to be an integer (i.e. _1_) or a float (i.e. _1.0_).
-4. _Point list_ - Select this to specify a list of XYZ points, which are used for things like polylines and splines. Selecting this will replace the _Value_ field (#5) with a table control that allows setting the points. Right clicking on the table will display a menu that will allow the user to _Add_ or _Remove_ points from the table. _Remove_ will delete the currently selected row. The points in the table can be edited directly, as with a spreadsheet application.
-5. _Value_ - Sets the value of this parameter. It can be text/string, number, or a point list. This field does support equations for the Number which can reference other (already existing) parameters.
+2. _Value_ - Sets the value of this parameter. It can be text/string, number, or a point list. This field does support equations for the Number which can reference other (already existing) parameters.
+3. _String_ - Select this to specify that the parameter is to be a string (text) parameter.
+4. _Number_ - Select this to specify that the parameter is to be an integer (i.e. _1_) or a float (i.e. _1.0_).
+5. _Point list_ - Select this to specify a list of XYZ points, which are used for things like polylines and splines. Selecting this will replace the _Value_ field (#5) with a table control that allows setting the points. Right clicking on the table will display a menu that will allow the user to _Add_ or _Remove_ points from the table. _Remove_ will delete the currently selected row. The points in the table can be edited directly, as with a spreadsheet application.
 6. _Comment_ - Description of the parameter that will travel with the component file. Use this to inform end users why the parameter exists and what it is used for.
 
 Once the parameter information has been entered, clicking the _OK_ button will add the parameter to the _Parameters_ list in the main user interface.
