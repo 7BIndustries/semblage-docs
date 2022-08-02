@@ -6,8 +6,8 @@ Below are the steps that should produce a working Semblage environment from scra
 
 ## Steps For Working Dev Environment
 
-* Download and install [Godot 3.4.4](https://godotengine.org/download) for 64-bit Linux.
-* Clone the Semblage repo
+* Download and install [Godot 3.4.5](https://godotengine.org/download) or a newer 3.4.x version for 64-bit Linux.
+* Clone the Semblage repo with `git clone --recurse-submodules https://github.com/7BIndustries/Semblage.git`.
 * Run Godot and import the Semblage project file.
 * Go to the AssetLib tab.
 * Search for "pythonscript".

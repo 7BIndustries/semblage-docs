@@ -11,8 +11,8 @@ Below are the steps that should produce a working Semblage environment from scra
 
 ## Steps For Working Dev Environment
 
-* Download [Godot 3.3.2](https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_win64.exe.zip) for Windows.
-* Clone Semblage repo.
+* Download [Godot 3.4.5](https://godotengine.org/download) or newer 3.4.x version for Windows.
+* Clone Semblage repo with `git clone --recurse-submodules https://github.com/7BIndustries/Semblage.git`.
 * Run Godot and open the Semblage project file.
 * Go to the AssetLib tab.
 * Search for "pythonscript".
@@ -23,19 +23,11 @@ Below are the steps that should produce a working Semblage environment from scra
 * You should eventually get a message that the package installed successfully and you can click the _OK_ button.
 * Search the `AssetLib` for `gut`.
 * Install the `Gut - Godot Unit Testing` package from _bitwes_.
-* Download the cq-cli package from [here](https://github.com/CadQuery/cq-cli/releases/download/v2.1.0/cq-cli-Windows.zip).
-* Unzip the contents of the cq-cli directory into `Semblage/addons/pythonscript/windows-64/DLLs`.
-* Download the zip file of the CadQuery repo from [here](https://github.com/CadQuery/cadquery/archive/refs/tags/2.1.zip).
-* Copy the `cadquery-2.1/cadquery` directory to `Semblage/lib`.
-* Delete the `Semblage/libs/exdxf` that was just copied. 
-* Open powershell and make sure you are in the root `Semblage` directory.
-* Run `addons\pythonscript\windows-64\python.exe -m ensurepip`
-* Run `addons\pythonscript\windows-64\python.exe -m pip install typing_extensions`
-* Run `addons\pythonscript\windows-64\python.exe -m pip install pyparsing`
-* Run `addons\pythonscript\windows-64\python.exe -m pip install ezdxf`
-* Run `addons\pythonscript\windows-64\python.exe -m pip install nptyping`
-* Run `addons\pythonscript\windows-64\python.exe -m pip install scipy`
-* Copy `typing_extensions.py` to `Semblage/libs` if Godot still complains about not being able to find the typing_extensions module.
+* Open a command line and make sure you are in the root `Semblage` directory.
+* Run `.\addons\pythonscript\windows-64\python.exe -m ensurepip`
+* Run `.\addons\pythonscript\windows-64\python.exe -m pip install git+https://github.com/CadQuery/cadquery.git`
+* Restart Godot and reopen the Semblage project.
+* Semblage should now run and work properly, including exporting the project for distribution.
 
 ## Exporting
 
