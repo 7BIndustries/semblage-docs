@@ -15,8 +15,8 @@ Open a terminal and run the following commands.
 
 ## Steps For Working Dev Environment
 
-* Download [Godot 3.3.2](https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_osx.universal.zip) for MacOS.
-* Clone Semblage repo.
+* Download and install [Godot 3.4.5](https://godotengine.org/download) or a newer 3.4.x version for MacOS.
+* Clone the Semblage repo with `git clone --recurse-submodules https://github.com/7BIndustries/Semblage.git`.
 * Run Godot and open the Semblage project file.
 * Go to the AssetLib tab.
 * Search for "pythonscript".
@@ -27,20 +27,12 @@ Open a terminal and run the following commands.
 * You should eventually get a message that the package installed successfully and you can click the _OK_ button.
 * Search the `AssetLib` for `gut`.
 * Install the `Gut - Godot Unit Testing` package from _bitwes_.
-* Download the cq-cli package from [here](https://github.com/CadQuery/cq-cli/releases/download/v2.1.0/cq-cli-MacOS.zip).
-* Unzip the contents of the cq-cli directory which are not directories into `Semblage/addons/pythonscript/osx-64/lib/python3.8/lib-dynload`.
-* Download the zip file of the CadQuery repo from [here](https://github.com/CadQuery/cadquery/archive/refs/tags/2.1.zip).
-* Copy the `cadquery-2.1/cadquery` directory to `Semblage/lib`.
-* Delete the `Semblage/libs/exdxf` that was just copied. 
-* Open a terminal window and make sure you are in the root `Semblage` directory.
-* Run `chmod +x addons/pythonscript/osx-64/bin/python3.8`
+* Open a terminal and make sure you are in the root `Semblage` directory.
+* Set `addons/pythonscript/osx-64/bin/python3.8` to be executable: `chmod +x addons/pythonscript/osx-64/bin/python3.8`
 * Run `addons/pythonscript/osx-64/bin/python3.8 -m ensurepip`
-* Run `addons/pythonscript/osx-64/bin/python3.8 -m pip install typing_extensions`
-* Run `addons/pythonscript/osx-64/bin/python3.8 -m pip install pyparsing`
-* Run `addons/pythonscript/osx-64/bin/python3.8 -m pip install ezdxf`
-* Run `addons/pythonscript/osx-64/bin/python3.8 -m pip install nptyping`
-* Run `addons/pythonscript/osx-64/bin/python3.8 -m pip install scipy`
-* Copy `typing_extensions.py` to `Semblage/libs` if Godot still complains about not being able to find the typing_extensions module.
+* Run `addons/pythonscript/x11-64/bin/python3.8 -m pip install git+https://github.com/CadQuery/cadquery.git`
+* Restart Godot and reopen the Semblage project.
+* Semblage should now run and work properly, including exporting the project for distribution.
 
 ## Exporting
 
