@@ -43,4 +43,5 @@ This documentation is organized into the following sections:
     * [Accessibility](community.md#accessibility)
     * [Sponsoring](community.md#sponsoring)
     * [Code of Conduct](community.md#code-of-conduct)
+* [Developers](developer_setup.md)
 * [Roadmap](roadmap.md)
