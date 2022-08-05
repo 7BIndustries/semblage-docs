@@ -1,6 +1,6 @@
 # Semblage Documentation
 
-Welcome to the documentation for Semblage, a community-based, open source 3D CAD application that seeks to blend the mouse-driven and programmatic CAD worlds.
+Welcome to the documentation for Semblage, an open source 3D CAD application that seeks to blend the mouse-driven and programmatic CAD worlds.
 
 ![Semblage screenshot](_static/Semblage_Pre_Alpha_Screenshot_03_Full.png)
 
@@ -44,4 +44,5 @@ This documentation is organized into the following sections:
     * [Sponsoring](community.md#sponsoring)
     * [Code of Conduct](community.md#code-of-conduct)
 * [Developers](developer_setup.md)
+    * [Codebase Tour](codebase_tour.md)
 * [Roadmap](roadmap.md)

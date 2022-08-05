@@ -5,6 +5,7 @@ This page is dedicated to resources for the community that will form around Semb
 ## Communication Channels
 
 * [Groups.io](https://groups.io/g/semblage) - Traditional mailing list. Messages from new users must be approved twice before your messages will come through automatically.
+* [Discourse](https://discourse.7bindustries.com/) - Forum that exists for all 7B Industries projects, but that has sections for [Semblage Users](https://discourse.7bindustries.com/c/semblage-users/10) and [Semblage Developers](https://discourse.7bindustries.com/c/semblage-developers/9).
 
 ## Contributing
 
