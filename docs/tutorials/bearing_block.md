@@ -20,9 +20,11 @@ This will display the _Add/Edit Parameter_ dialog which has _Name_, _Value_, _Ty
 
 ![Add Parameter Dialog](_static/Bearing_Block_Add_Parameter_Dialog.png)
 
-There are default placeholders in each field that must be changed. For the first parameter _Name_ enter `bearing_od` for the bearing outside diameter, and `22.0` for the _Value_. You must follow the naming convention of not starting a variable with a number, and only using letters, numbers and underscores in your parameter name. Otherwise an error message will be displayed when you click the _OK_ button. This is because the parameter name must also be a valid Python variable name for the underlying CadQuery script to be executed correctly.
+There are default placeholders in each field that must be changed. For the first parameter _Name_ enter `bearing_od` to denote that the parameter is for the bearing outside diameter. You must follow the naming convention of not starting a variable with a number, and only using letters, numbers and underscores in your parameter name. Otherwise an error message will be displayed when you click the _OK_ button. This is because the parameter name must also be a valid Python variable name for the underlying CadQuery script to be executed correctly.
 
-Below the value field is a set of _Type_ controls. The parameter being created is a float value, so select _Number_. The _Comment_ can be left blank for now, but is a field used for describing what a parameter is used for.
+Below the _Value_ field is a set of _Type_ controls. The parameter being created is a float value, so select _Number_. The _Comment_ can be left blank for now, but is a field used for describing what a parameter is used for.
+
+Now the value of `22.0` can be filled in for the _Value_ field. If the _Value_ is set before the _Type_ is selected, the number will be reverted to `0.0`. 
 
 The _Add/Edit Parameter_ dialog should now look like this.
 
@@ -30,8 +32,7 @@ The _Add/Edit Parameter_ dialog should now look like this.
 
 Click the OK button and the parameter will be added to the _Parameters_ list in the main window.
 
-![bearing_od Parameter in Parameters List](_static/
-.png)
+![bearing_od Parameter in Parameters List](_static/Bearing_Block_Parameters_List_bearing_od_Added.png)
 
 ### Step 2 - Add the Bearing Thickness Parameter
 
@@ -79,7 +80,7 @@ With the _Name_ field set to `bearing_block` and the other controls left at thei
 
 ![Workplane Visualization](_static/Bearing_Block_Tutorial_Workplane_Visualization.png)
 
-You will also notice that a `bearing_block` entry has been added to the _Components_ list of the main user interface, with a workplane creation operation attached to it. You do not need to understand the workplane operation at this point, Semblage just provides access to it if you ever want or need to interact more directly with the CodeCAD underneath.
+You will also notice that a `bearing_block` entry has been added to the _Components_ list of the main user interface, with a workplane creation operation attached to it. You do not need to understand the workplane operation at this point, Semblage just provides access to it if you ever want or need to interact more directly with the CadQuery object underneath.
 
 ![bearing_block Component Added](_static/Bearing_Block_Component_Added_To_List.png)
 
@@ -135,27 +136,23 @@ Once the extrude settings are as shown, click the _OK_ button. The result should
 
 The center hole that the bearing presses into can now be added. To tell Semblage (and by extension CadQuery) which face to place the next feature on, we use selectors. Selectors are a flexible way to capture design intent. For instance, if we select the face in the maximum Z axis direction, the furthest face will always be selected, even if steps or other features are added to the component. Selectors help make designs less brittle.
 
-The goal is to eventually have selectors be largely determined by what the user selects prior to starting a new selector operation, but for now the selectors have to be added manually.
+In Semblage, faces can be selected by holding the _Shift_ key and clicking on them with the left mouse button.
 
 ### Step 1 - Select a Face to Place a Circle On
 
 The hole in the center of the block runs through the Z axis. We could choose either to start the hole from the minimum Z or maximum Z sides of the block, but starting from the maximum Z direction feels a little bit more like a drilling operation in a CNC mill, so we will do that.
 
-Bring up the _Operations_ dialog, and make sure that the _Selectors_ button is toggled.
+While holding down the _Shift_ key, left click on the top-most face in the Z direction, as shown in the following screenshot.
 
-![Operations Dialog Selectors Toggled](_static/Bearing_Block_Operations_Dialog_Selectors_Toggled.png)
+![Maximum Z Face Selected](_static/Max_Z_Face_Selected.png)
 
-_Face_, _Edge_ and _Vertex_ selectors are available, but to place the circle for the hole we will only use the _Face_ selector and create a workplane on that.
+Continue holding the _Shift_ key and right click on the 3D view to bring up the _Operations_ dialog. The _Selectors_ tab should be set to active, and the _Face selector_ field should show an auto-generated selector string for the face you selected.
 
-1. Pull down the _Face Selector_ drop down that shows _None_ by default and set it to `Maximum`.
-2. A new drop down will appear to set the axis. Set this to `Z`. This, combined with the _Maximum_ setting above, will select the face that is furthest along the Z axis away from the origin.
-3. The selector index allows the selection to be changed to the selections before or after the primary selection. This is useful for selecting things like a step 2 faces below the face that you are selecting. This can be left at 0 for our uses, which ignores the index.
-4. Click the _Create Workplane_ toggle to set it to _ON_. This will display extra options for adding a workplane to the selected face so that the circle can be added to that.
-5. All other controls can be left at their default.
+![First Face Selector Filled](_static/Face_Selector_Synthesis_Filled_In_1.png)
 
-Your _Operations_ dialog should now look like this.
+We want to add a hole to the selected face, and so we will tell Semblage to create a workplane on that face by toggling the _Create Workplane_ control to _ON_. The rest of the controls that appear when the workplane control is toggled can be left at their defaults.
 
-![Face Selector Values Set](_static/Bearing_Block_Operations_Dialog_Selector_Values_Set.png)
+![First Face Selector Filled In With Workplane](_static/Face_Selector_Synthesis_Filled_In_1_With_Workplane.png)
 
 Click _OK_ to add this selector to the _Components_ tree. The original block will be shown with a translucent workplane visualization on the topmost face.
 
@@ -172,13 +169,13 @@ Bring up the _Operations_ dialog (right click), and follow these steps.
 3. Set the value of _Radius_ to `bearing_od`, which is the parameter we set before.
 4. Leave _For Construction_ unchecked
 
-The `circle` controls in the dialog should now look like this (the parameter name is truncated in the screenshot).
+The `circle` controls in the dialog should now look like this.
 
 ![Circle Values Set](_static/Bearing_Block_Operations_Dialog_Circle_Values_Set.png)
 
 Note that in most cases a press-fit tolerance would be added to the hole to make sure the bearing fits correctly. To keep things a little simpler, we have omitted that here.
 
-Click the _OK_ button to add the circle to the component. The circle will be displayed on the selector workplane in the 3D view at this point, but the original box will not be.
+Click the _OK_ button to add the circle to the component. The circle will be displayed on the selector workplane in the 3D view at this point.
 
 ![Circle Placed on Selector Workplane](_static/Bearing_Block_Circle_Placed_on_Selector_Workplane.png)
 
@@ -188,13 +185,13 @@ With the circle placed, a cut operation can now be added. Open the Operations di
 
 1. Click the _3D_ button to select the group of 3D operations.
 2. Click the operation drop down and select `Thru Cut (cutThruAll)` from the list. We do a thru cut because if we created a blind cut with a distance, and then changed the thickness of the plate, the hole might not go all the way through the plate anymore. Using `cutThruAll` ensures that our design intent is preserved, even when the component changes.
-3. All of the default `cutThruAll` options are what we need for this. If you need a tapered hole, the _Taper_ option could be used. The _Invert_ setting will cause the hole to be cut in the opposite direction. Neither of those things are needed in this case.
+3. All of the default `cutThruAll` options are what we need for this. If you need a tapered hole, the _Taper_ option could be used, but we do not need that in this case
 
 The _Operations_ dialog should now look like the following.
 
 ![Cut Thru All Values Set](_static/Bearing_Block_Operations_Dialog_cutThruAll_Values_Set.png)
 
-Click the _OK_ button if/when all settings match the screenshot. This adds the `cutThruAll` operation to the component and the resulting render is shown in the 3D view.
+Click the _OK_ button when all settings match the screenshot. This adds the `cutThruAll` operation to the component and the resulting render is shown in the screenshot below.
 
 ![Block With Center Hole](_static/Bearing_Block_Operations_Dialog_Block_With_Center_Hole.png)
 
@@ -204,19 +201,21 @@ We now want to place counter-bore holes in each of the 4 corners of the block. W
 
 ### Step 1 - Set Location of Construction Geometry
 
-We need to select the face that the construction geometry will be placed on. As with the center hole, mimicking a machining operation and starting from the maximum "top" Z surface can be a good default. Right click to bring up the _Operations_ dialog, then follow these steps.
+We need to select the face that the construction geometry will be placed on. As with the center hole, mimicking a machining operation and starting from the maximum "top" Z surface can be a good default.
 
-1. Click the _Selectors_ mode button.
-2. Click on the _Face Selector_ drop down and select `Maximum`. This will select the face furthest away from the origin in the axis we select next.
-3. A new drop down will appear for setting the axis. Set this to `Z`.
-4. Leave the index at 0 to ignore it.
-5. Click the Create Workplane toggle to set it to ON. This will display extra options for adding a workplane to the selected face so that the circle can be added to that.
+While holding down the _Shift_ key, left click on the top-most face in the Z direction, as shown in the following screenshot.
 
-The _Operations_ dialog settings should now look like the following.
+![Maximum Z Face Selected](_static/Max_Z_Face_Selected_2.png)
 
-![Counter Bore Face Selector](_static/Bearing_Block_Operations_Dialog_Selector_Values_Set.png)
+Continue holding the _Shift_ key and right click on the 3D view to bring up the _Operations_ dialog. The _Selectors_ tab should be set to active, and the _Face selector_ field should show an auto-generated selector string for the face you selected.
 
-Click the _OK_ button to add the selector to the component and create a new workplane on the selected face. The workplane will be visualized in the same way that it was with the basic block.
+![First Face Selector Filled](_static/Face_Selector_Synthesis_Filled_In_1.png)
+
+We want to add a hole to the selected face, and so we will tell Semblage to create a workplane on that face by toggling the _Create Workplane_ control to _ON_. The rest of the controls that appear when the workplane control is toggled can be left at their defaults.
+
+![First Face Selector Filled In With Workplane](_static/Face_Selector_Synthesis_Filled_In_1_With_Workplane.png)
+
+Click _OK_ to add this selector to the _Components_ tree. The original block will be shown with a translucent workplane visualization on the topmost face.
 
 ![CBore Holes For Construction Selected Face Workplane](_static/Bearing_Block_CBore_Holes_For_Construction_Selected_Face_Workplane.png)
 
@@ -235,23 +234,23 @@ The `rect` controls should now look like the following screenshot.
 
 ![Construction rect Values Set](_static/Bearing_Block_Tutorial_rect_Controls_Set_For_Construction.png)
 
-Click the _OK_ button to add the construction rectangle to the component. The rectangle will be shown, but the block will not be.
+Click the _OK_ button to add the construction rectangle to the component. The rectangle will be shown on top of the bearing block in the 3D view, inset from the outer edge.
 
 ![CBore Holes Construction Rect Placed on Selected Face Workplane](_static/CBore_Holes_Construction_rect_Placed_on_Selected_Face_Workplane.png)
 
 ### Step 4 - Select Rectangle Vertices to Place Holes
 
-With the construction rectangle now available, we can select the vertices in each of the 4 corners and use those to place the counter-bore holes. Bring up the _Operations_ dialog again and follow these steps.
+With the construction rectangle now available, we can select the vertices in each of the 4 corners and use those to place the counter-bore holes. There is no selector generation for vertices yet, so this must be done manually. Bring up the _Operations_ dialog again and follow these steps.
 
 1. Click the _Selectors_ mode button.
-2. Click on the _Vertex Selector_ drop down and select `All`. This will select all the vertices of the construction rectangle, which effectively selects all the corners.
+2. In the _Selector String_ field, enter `.vertices()`. This will select all the vertices of the construction rectangle, which effectively selects all the corners.
 3. Leave the _Create Workplane_ toggle on _OFF_ since we do not want to place workplanes on the vertices, we only want to use them to locate the holes in the next operation.
 
 The _Operations_ dialog should now look like this.
 
 ![Select All Rect Vertices](_static/Bearing_Block_Select_All_Rect_Vertices.png)
 
-Click _OK_ to add the selector to the component. Nothing will be displayed at this time since vertex selector visualizations have not been implemented. However, a `.vertices()` entry will be shown in the _Components_ tree.
+Click _OK_ to add the selector to the component. Vertex selector visualizations have not been implemented yet, and so a plain visualization of the bearing block will be shown. However, a `.vertices()` entry will be shown in the _Components_ tree indicating that the selector was successful.
 
 ### Step 3 - Add Counter-Bore Holes
 
@@ -297,18 +296,15 @@ The last thing to do is to break the corner edges on the block with fillets. We 
 
 ### Step 1 - Select the Edges
 
-Open the _Operations_ dialog and follow these steps.
+While holding down the _Shift_ key, left click on one of the corner edges that are aligned with the Z direction, as shown in the following screenshot.
 
-1. Click the _Selectors_ mode button.
-2. Click the _Edge Selector_ drop down that shows `None`, and select `Parallel`. The parallel selector selects any edges that are parallel to a given axis.
-3. Once the _Parallel_ selector has been clicked, a new drop down will become visible. We want to select the edges parallel to the Z axis, so select `Z` in this new drop down.
-4. Leave the _Create Workplane_ toggle set to `OFF` because we do not want to place workplanes on the edges, we want to use the edges with a fillet operation.
+![Corner Edge Selected](_static/Bearing_Block_With_Corner_Edge_Selected.png)
 
-The _Operations_ dialog should now look like this.
+Continue holding the _Shift_ key and right click on the 3D view to bring up the _Operations_ dialog. The _Selectors_ tab should be set to active, and the _Selector String_ field should show an auto-generated selector string for the edge you selected. The _Operations_ dialog should now look like this.
 
 ![Fillet Edge Selectors](_static/Bearing_Block_Fillet_Edge_Selectors.png)
 
-Click the _OK_ button to add the edge selector to the component. Nothing will be shown at this point. Edge selector visualization is planned for the future.
+Click the _OK_ button to add the edge selector to the component. Only the bearing block will be displayed. Edge selector visualization is planned for the future.
 
 ### Step 2 - Apply the Fillets
 
