@@ -30,7 +30,7 @@ Open a terminal and run the following commands.
 * Open a terminal and make sure you are in the root `Semblage` directory.
 * Set `addons/pythonscript/osx-64/bin/python3.8` to be executable: `chmod +x addons/pythonscript/osx-64/bin/python3.8`
 * Run `addons/pythonscript/osx-64/bin/python3.8 -m ensurepip`
-* Run `addons/pythonscript/x11-64/bin/python3.8 -m pip install git+https://github.com/CadQuery/cadquery.git`
+* Run `addons/pythonscript/x11-64/bin/python3.8 -m pip install --pre git+https://github.com/CadQuery/cadquery.git`
 * Restart Godot and reopen the Semblage project.
 * Semblage should now run and work properly, including exporting the project for distribution.
 

@@ -25,7 +25,7 @@ Below are the steps that should produce a working Semblage environment from scra
 * Install the `Gut - Godot Unit Testing` package from _bitwes_.
 * Open a command line and make sure you are in the root `Semblage` directory.
 * Run `.\addons\pythonscript\windows-64\python.exe -m ensurepip`
-* Run `.\addons\pythonscript\windows-64\python.exe -m pip install git+https://github.com/CadQuery/cadquery.git`
+* Run `.\addons\pythonscript\windows-64\python.exe -m pip install --pre git+https://github.com/CadQuery/cadquery.git`
 * Restart Godot and reopen the Semblage project.
 * Semblage should now run and work properly, including exporting the project for distribution.
 
